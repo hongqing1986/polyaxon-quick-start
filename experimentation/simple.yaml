@@ -6,7 +6,7 @@ tags: [examples]
 run:
   kind: job
   init:
-  - git: {url: "https://github.com/polyaxon/polyaxon-quick-start"}
+  - git: {url: "https://github.com/hongqing1986/polyaxon-quick-start.git"}
   container:
     image: polyaxon/polyaxon-quick-start
     workingDir: "{{ globals.artifacts_path }}/polyaxon-quick-start"
