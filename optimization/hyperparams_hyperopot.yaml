@@ -1,0 +1,27 @@
+version: 1.1
+kind: operation
+matrix:
+  kind: hyperopt
+  concurrency: 4
+  maxIterations: 10
+  algorithm: tpe
+  numRuns: 20
+  metric:
+    name: loss
+    optimization: minimize
+  tuner:
+    hubRef: hyperopt-tuner
+  params:
+    learning_rate:
+      kind: linspace
+      value: 0.001:0.1:5
+    dropout:
+      kind: choice
+      value: [0.25, 0.3]
+    conv_activation:
+      kind: choice
+      value: [relu, sigmoid]
+    epochs:
+      kind: choice
+      value: [1, 2, 3]
+pathRef: ../experimentation/typed.yaml
